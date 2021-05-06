@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入react核心库 -->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!-- 引入babel，用于将jsx转为js -->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<body>
+<div id="test"></div>
+
+</body>
+<script type="text/babel">
+    // 尝试通过类定义的写法
+   class Test extends React.Component{
+       render() {
+           return <span>hello word class</span>
+       }
+   }
+    ReactDOM.render(<Test/>,document.getElementById("test"))
+</script>
+</html>
