@@ -15,12 +15,29 @@
 
 </body>
 <script type="text/babel">
+    let a = "test val"
+    const index = 0
+
     // 尝试通过类定义的写法
-   class Test extends React.Component{
-       render() {
-           return <span>hello word class</span>
-       }
-   }
-    ReactDOM.render(<Test/>,document.getElementById("test"))
+    class Test extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {isHot: true}
+        }
+
+        modify() {
+           // this.state.isHot = !this.state.isHot
+            let hot = !this.state.isHot;
+            console.log(hot)
+            this.state={isHot: hot}
+            console.log(this.state)
+        }
+
+        render() {
+            return <span onClick={()=>this.modify()}>hello word class {this.state.isHot ? "真的" : "骄傲的"}</span>
+        }
+    }
+
+    ReactDOM.render(<Test/>, document.getElementById("test"))
 </script>
 </html>
