@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入react核心库 -->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!-- 引入babel，用于将jsx转为js -->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<body>
+<div id="test"></div>
+<div id="test2"></div>
+<div id="test3"></div>
+<div id="test4"></div>
+</body>
+<script type="text/babel">
+
+    // 尝试通过类定义的写法
+    class Test extends React.Component {
+        render() {
+            return (
+                <ul>
+                    <li>性名：张三</li>
+                    <li>性别：男</li>
+                    <li>年龄：19</li>
+                </ul>
+            )
+        }
+    }
+
+    class Test2 extends React.Component {
+        name = "张三"
+        sex = "男"
+        age = 19
+
+        render() {
+            return (
+                <ul>
+                    <li>性名：{this.name}</li>
+                    <li>性别：{this.sex}</li>
+                    <li>年龄：{this.age}</li>
+                </ul>
+            )
+        }
+    }
+
+
+    class Test3 extends React.Component {
+        render() {
+            const {name, sex, age} = this.props
+            return (
+                <ul>
+                    <li>性名：{name}</li>
+                    <li>性别：{sex}</li>
+                    <li>年龄：{age}</li>
+                </ul>
+            )
+        }
+    }
+
+    ReactDOM.render(<Test/>, document.getElementById("test"))
+    ReactDOM.render(<Test2/>, document.getElementById("test2"))
+    ReactDOM.render(<Test3 name="张三" sex="女" age="18"/>, document.getElementById("test3"))
+    const p = {name: "张三", sex: "男", age: "18"}
+    ReactDOM.render(<Test3 {...p}/>, document.getElementById("test4"))
+</script>
+</html>
