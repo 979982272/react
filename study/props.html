@@ -63,8 +63,8 @@
 
     ReactDOM.render(<Test/>, document.getElementById("test"))
     ReactDOM.render(<Test2/>, document.getElementById("test2"))
-    ReactDOM.render(<Test3 name="张三" sex="女" age="18"/>, document.getElementById("test3"))
-    const p = {name: "张三", sex: "男", age: "18"}
+    ReactDOM.render(<Test3 name="张三" sex="女" age={18}/>, document.getElementById("test3"))
+    const p = {name: "张三", sex: "男", age: 18}
     ReactDOM.render(<Test3 {...p}/>, document.getElementById("test4"))
 </script>
 </html>
