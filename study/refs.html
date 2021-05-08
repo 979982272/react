@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入react核心库 -->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!-- 引入babel，用于将jsx转为js -->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+
+<body>
+<div id="test3"></div>
+</body>
+<script type="text/babel">
+
+
+    class Test3 extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {inputVal: ''};
+        }
+
+        static defaultProps = {
+            inputVal: ""
+        }
+
+        inputChange(event) {
+            this.setState({inputVal: event.target.value})
+        }
+
+        buttonClick() {
+            console.log(this.state)
+        }
+
+        inputBlur(event) {
+            console.log(event.target.value)
+        }
+
+        render() {
+            return (
+                <div>
+                    <input value={this.state.inputVal} onChange={() => this.inputChange(event)}/>
+                    <button onClick={() => this.buttonClick()}>按钮</button>
+                    <input onBlur={() => this.inputBlur(event)}/>
+                </div>
+            )
+        }
+
+
+    }
+
+
+    // class Test4 extends React.Component{
+    //     render() {
+    //         return (
+    //             <Test3 age={}></Test3>
+    //         )
+    //     }
+    // }
+
+    ReactDOM.render(<Test3/>, document.getElementById("test3"))
+
+</script>
+</html>
